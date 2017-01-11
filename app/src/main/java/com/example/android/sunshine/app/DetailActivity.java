@@ -15,6 +15,7 @@ package com.example.android.sunshine.app;
  * limitations under the License.
  */
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 
 
@@ -26,6 +27,7 @@ import android.support.v7.app.ActionBarActivity;
         import android.view.MenuItem;
         import android.view.View;
         import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class DetailActivity extends ActionBarActivity {
 
@@ -38,6 +40,8 @@ public class DetailActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+
     }
 
 
@@ -57,6 +61,8 @@ public class DetailActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this,SettingsActivity.class));
+
             return true;
         }
 
@@ -76,6 +82,12 @@ public class DetailActivity extends ActionBarActivity {
                                  Bundle savedInstanceState) {
 
             View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
+            Intent intent = getActivity().getIntent();
+            if(intent!=null&&intent.hasExtra(Intent.EXTRA_TEXT)) {
+                TextView forecastSummary = (TextView) rootView.findViewById(R.id.textview_forecast_summary);
+                String forecastText = getActivity().getIntent().getStringExtra(Intent.EXTRA_TEXT);
+                forecastSummary.setText(forecastText);
+            }
             return rootView;
         }
     }
