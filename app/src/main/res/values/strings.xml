@@ -4,7 +4,14 @@
     <string name="app_name">Sunshine</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_map">Map location</string>
+    <string name="action_share">Share</string>
+
+
+
     <string name="refresh_button">Refresh</string>
+
+
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="location_key" translatable="false">location</string>
     <string name="location_title" translatable="false">location</string>
